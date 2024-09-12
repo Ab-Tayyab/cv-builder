@@ -1,0 +1,109 @@
+.cv-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .cv-form h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .cv-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .cv-form input[type="text"],
+  .cv-form input[type="email"],
+  .cv-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .cv-form button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .cv-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cv-form .add-button,
+  .cv-form .remove-button {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .cv-form .remove-button {
+    background-color: #dc3545;
+  }
+  
+  .cv-form .remove-button:hover {
+    background-color: #c82333;
+  }
+  
+  .cv-form .add-button:hover {
+    background-color: #218838;
+  }
+  
+  .cv-form .section-container {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .cv-form .experience-container,
+  .cv-form .skills-container {
+    margin-bottom: 30px;
+  }
+  
+  .cv-form .experience-container div,
+  .cv-form .skills-container div {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cv-form .experience-container button,
+  .cv-form .skills-container button {
+    margin-top: 10px;
+  }
+  
+  .cv-form .submit-button {
+    background-color: #007bff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cv-form .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

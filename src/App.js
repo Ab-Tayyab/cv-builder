@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CVForm from './components/CVForm';
+import CVPreview from './components/CVPreview';
+import './components/CVPreview.css'
 
-function App() {
+const App = () => {
+  const [cvData, setCvData] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
+
+  const handleFormSubmit = (data) => {
+    setCvData(data);
+    setShowPreview(true);
+  };
+
+  const handleBackToForm = () => {
+    setShowPreview(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>CV Maker</h1>
+      {!showPreview ? (
+        <CVForm onSubmit={handleFormSubmit} />
+      ) : (
+        <div>
+          <CVPreview data={cvData} />
+          <button className="back-button" onClick={handleBackToForm}>
+            Back to Form
+          </button>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
