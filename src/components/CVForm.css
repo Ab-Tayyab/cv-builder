@@ -1,109 +1,94 @@
-.cv-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .cv-form h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .cv-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .cv-form input[type="text"],
-  .cv-form input[type="email"],
-  .cv-form input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
-  
-  .cv-form button {
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .cv-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .cv-form .add-button,
-  .cv-form .remove-button {
-    background-color: #28a745;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .cv-form .remove-button {
-    background-color: #dc3545;
-  }
-  
-  .cv-form .remove-button:hover {
-    background-color: #c82333;
-  }
-  
-  .cv-form .add-button:hover {
-    background-color: #218838;
-  }
-  
-  .cv-form .section-container {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .cv-form .experience-container,
-  .cv-form .skills-container {
-    margin-bottom: 30px;
-  }
-  
-  .cv-form .experience-container div,
-  .cv-form .skills-container div {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .cv-form .experience-container button,
-  .cv-form .skills-container button {
-    margin-top: 10px;
-  }
-  
-  .cv-form .submit-button {
-    background-color: #007bff;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .cv-form .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.cv-container {
+  box-sizing: border-box;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px black;
+}
+
+.cv-container label {
+  font-size: 18px;
+  color: #7e7e7e;
+  font-weight: 400;
+}
+
+.cv-container input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border: 2px solid #7e7e7e;
+}
+
+/* Button Container */
+.button-container {
+  max-width: 400px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.next-btn, 
+.prev-btn {
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+}
+
+.next-btn:hover,
+.prev-btn:hover {
+  cursor: pointer;
+  background-color: rgb(70, 70, 70);
+  transition: 0.5s ease;
+}
+
+.add-btn,
+.gen-btn {
+  padding: 10px 15px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.remove-btn {
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.remove-btn:hover {
+  cursor: pointer;
+  background-color: rgb(189, 34, 34);
+  transition: 0.5s ease;
+}
+
+.add-btn:hover,
+.gen-btn:hover {
+  cursor: pointer;
+  background-color: rgb(33, 195, 33);
+  transition: 0.5s ease;
+}
+
+.gen-btn {
+  float: right;
+}
