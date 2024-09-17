@@ -5,7 +5,7 @@ import "./CVForm.css";
 const CVForm = ({ onSubmit }) => {
   const { register, control, handleSubmit, watch } = useForm({
     defaultValues: {
-      experience: [{ jobTitle: "", company: "", duration: "" }],
+      experience: [{ jobTitle: "", company: "", duration1: "",duration2:"",jobsummary:"" }],
       skills: [{ name: "" }],
     },
   });
@@ -51,20 +51,21 @@ const CVForm = ({ onSubmit }) => {
   const prevPage = () => setStep((prev) => prev - 1);
 
   const isStepValid = () => {
-    // Validate fields for each step
     if (step === 1) {
       return formValues.name && formValues.email && formValues.phone;
     } else if (step === 2) {
-      return formValues.degree && formValues.institution && formValues.year;
+      return formValues.degree && formValues.institution && formValues.year1 && formValues.year2;
     } else if (step === 3) {
-      return formValues.experience.some(
-        (exp) => exp.jobTitle && exp.company && exp.duration
+      return formValues.experience.every(
+        (exp) =>
+          exp.jobTitle && exp.company && exp.duration1 && exp.duration2 && exp.jobsummary
       );
     } else if (step === 4) {
-      return formValues.skills.some((skill) => skill.name);
+      return formValues.skills.every((skill) => skill.name);
     }
     return true;
   };
+  
 
   const onFormSubmit = (data) => {
     const formData = { ...data, profileImage: image };
@@ -110,6 +111,14 @@ const CVForm = ({ onSubmit }) => {
             <label>Phone:</label>
             <br />
             <input type="tel" {...register("phone")} />
+            <br />
+            <label>LinkedIn:</label>
+            <br />
+            <input type="link" {...register("linkedin")} />
+            <br />
+            <label>Summary:</label>
+            <br />
+            <textarea type="textarea" {...register("summary")}/>
           </div>
         )}
 
@@ -124,9 +133,12 @@ const CVForm = ({ onSubmit }) => {
             <br />
             <input type="text" {...register("institution")} />
             <br />
-            <label>Year:</label>
+            <label>From:</label>
             <br />
-            <input type="text" {...register("year")} />
+            <input type="date" {...register("year1")} />
+            <label>To:</label>
+            <br />
+            <input type="date" {...register("year2")} />
           </div>
         )}
 
@@ -149,11 +161,25 @@ const CVForm = ({ onSubmit }) => {
                   {...register(`experience.${index}.company`)}
                 />
                 <br />
-                <label>Duration:</label>
+                <label>From:</label>
                 <br />
                 <input
+                  type="date"
+                  {...register(`experience.${index}.duration1`)}
+                />
+                <br />
+                <label>To:</label>
+                <br />
+                <input
+                  type="date"
+                  {...register(`experience.${index}.duration2`)}
+                />
+                 <br />
+                <label>Summary:</label>
+                <br />
+                <textarea
                   type="text"
-                  {...register(`experience.${index}.duration`)}
+                  {...register(`experience.${index}.jobsummary`)}
                 />
                 <button
                   type="button"
@@ -168,7 +194,7 @@ const CVForm = ({ onSubmit }) => {
             <button
               type="button"
               onClick={() =>
-                addExperience({ jobTitle: "", company: "", duration: "" })
+                addExperience({ jobTitle: "", company: "", duration1: "",duration2:"",jobsummary:"" })
               }
               className="add-btn"
             >
