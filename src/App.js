@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import CVForm from './components/CVForm';
-import CVPreview from './components/CVPreview';
-import './components/CVPreview.css'
+import React, { useState } from "react";
+import CVForm from "./components/CVForm";
+import CVPreview from "./components/CVPreview";
+import "./components/CVPreview.css";
 
 const App = () => {
   const [cvData, setCvData] = useState(null);
@@ -19,7 +19,8 @@ const App = () => {
   return (
     <div className="app">
       <h1>CV Maker</h1>
-      {!showPreview ? (
+      <CVPreview />
+      {/* {!showPreview ? (
         <CVForm onSubmit={handleFormSubmit} />
       ) : (
         <div>
@@ -28,7 +29,7 @@ const App = () => {
             Back to Form
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
