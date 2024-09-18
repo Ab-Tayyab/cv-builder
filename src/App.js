@@ -19,13 +19,12 @@ const App = () => {
   return (
     <div className="app">
       <h1>CV Maker</h1>
-      {/* <CVPreview /> */}
       {!showPreview ? (
         <CVForm onSubmit={handleFormSubmit} />
       ) : (
         <div>
           <CVPreview data={cvData} />
-          <button className="back-button" onClick={handleBackToForm}>
+          <button className="back-btn" onClick={handleBackToForm}>
             Back to Form
           </button>
         </div>

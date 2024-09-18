@@ -5,8 +5,22 @@ import "./CVForm.css";
 const CVForm = ({ onSubmit }) => {
   const { register, control, handleSubmit, watch } = useForm({
     defaultValues: {
-      experience: [{ jobTitle: "", company: "", duration1: "",duration2:"",jobsummary:"" }],
+      experience: [
+        {
+          jobTitle: "",
+          company: "",
+          duration: "",
+          jobsummary: "",
+        },
+      ],
       skills: [{ name: "" }],
+      project: [
+        {
+          projectName: "",
+          projectTools: "",
+          projectSummary: "",
+        },
+      ],
     },
   });
 
@@ -26,6 +40,15 @@ const CVForm = ({ onSubmit }) => {
   } = useFieldArray({
     control,
     name: "skills",
+  });
+
+  const {
+    fields: projectFields,
+    append: addProject,
+    remove: removeProject,
+  } = useFieldArray({
+    control,
+    name: "project",
   });
 
   // Local state for multi-page functionality
@@ -54,18 +77,20 @@ const CVForm = ({ onSubmit }) => {
     if (step === 1) {
       return formValues.name && formValues.email && formValues.phone;
     } else if (step === 2) {
-      return formValues.degree && formValues.institution && formValues.year1 && formValues.year2;
+      return formValues.degree && formValues.institution && formValues.year;
     } else if (step === 3) {
       return formValues.experience.every(
-        (exp) =>
-          exp.jobTitle && exp.company && exp.duration1 && exp.duration2 && exp.jobsummary
+        (exp) => exp.jobTitle && exp.company && exp.duration && exp.jobsummary
       );
     } else if (step === 4) {
       return formValues.skills.every((skill) => skill.name);
+    } else if (step === 5) {
+      return formValues.project.every(
+        (pro) => pro.projectName && pro.projectTools && pro.projectSummary
+      );
     }
     return true;
   };
-  
 
   const onFormSubmit = (data) => {
     const formData = { ...data, profileImage: image };
@@ -118,7 +143,7 @@ const CVForm = ({ onSubmit }) => {
             <br />
             <label>Summary:</label>
             <br />
-            <textarea type="textarea" {...register("summary")}/>
+            <textarea type="textarea" {...register("summary")} />
           </div>
         )}
 
@@ -133,12 +158,9 @@ const CVForm = ({ onSubmit }) => {
             <br />
             <input type="text" {...register("institution")} />
             <br />
-            <label>From:</label>
+            <label>Year: (2020-2022)</label>
             <br />
-            <input type="date" {...register("year1")} />
-            <label>To:</label>
-            <br />
-            <input type="date" {...register("year2")} />
+            <input type="text" {...register("year")} />
           </div>
         )}
 
@@ -161,20 +183,13 @@ const CVForm = ({ onSubmit }) => {
                   {...register(`experience.${index}.company`)}
                 />
                 <br />
-                <label>From:</label>
+                <label>Year:(2020-2022)</label>
                 <br />
                 <input
-                  type="date"
-                  {...register(`experience.${index}.duration1`)}
+                  type="text"
+                  {...register(`experience.${index}.duration`)}
                 />
                 <br />
-                <label>To:</label>
-                <br />
-                <input
-                  type="date"
-                  {...register(`experience.${index}.duration2`)}
-                />
-                 <br />
                 <label>Summary:</label>
                 <br />
                 <textarea
@@ -194,7 +209,11 @@ const CVForm = ({ onSubmit }) => {
             <button
               type="button"
               onClick={() =>
-                addExperience({ jobTitle: "", company: "", duration1: "",duration2:"",jobsummary:"" })
+                addExperience({
+                  jobTitle: "",
+                  company: "",
+                  duration: "",
+                })
               }
               className="add-btn"
             >
@@ -229,6 +248,58 @@ const CVForm = ({ onSubmit }) => {
           </div>
         )}
 
+        {step === 5 && (
+          <div className="cv-container">
+            <h2>Experience</h2>
+            {projectFields.map((item, index) => (
+              <div key={item.id}>
+                <label>Project Name:</label>
+                <br />
+                <input
+                  type="text"
+                  {...register(`project.${index}.projectName`)}
+                />
+                <br />
+                <label>Tools:</label>
+                <br />
+                <input
+                  type="text"
+                  {...register(`project.${index}.projectTools`)}
+                />
+                <br />
+
+                <label>Description:</label>
+                <br />
+                <textarea
+                  type="text"
+                  {...register(`project.${index}.projectSummary`)}
+                />
+                <button
+                  type="button"
+                  onClick={() => removeProject(index)}
+                  disabled={projectFields.length === 1}
+                  className="remove-btn"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={() =>
+                addProject({
+                  projectName: "",
+                  projectTools: "",
+                  projectSummary: "",
+                })
+              }
+              className="add-btn"
+            >
+              Add Experience
+            </button>
+          </div>
+        )}
+
         {/* Button Container for Navigation */}
         <div className="button-container">
           {step > 1 && (
@@ -236,7 +307,7 @@ const CVForm = ({ onSubmit }) => {
               Previous
             </button>
           )}
-          {step < 4 && (
+          {step < 5 && (
             <button
               type="button"
               onClick={nextPage}
@@ -246,7 +317,7 @@ const CVForm = ({ onSubmit }) => {
               Next
             </button>
           )}
-          {step === 4 && (
+          {step === 5 && (
             <button type="submit" disabled={!isStepValid()} className="gen-btn">
               Generate CV
             </button>
