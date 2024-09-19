@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import CVForm from "./components/CVForm";
-import CVPreview from "./components/CVPreview";
-import "./components/CVPreview.css";
+import CVForm from "./components/cvForm/CVForm";
+import CVPreview from "./components/cvPreview/CVPreview1";
+import './components/cvPreview/CVPreview1.css'
+import CVPreview2 from "./components/cvPreview/CVPreview2";
+import ShowComponent from "./components/showComponent";
 
 const App = () => {
   const [cvData, setCvData] = useState(null);
@@ -23,7 +25,7 @@ const App = () => {
         <CVForm onSubmit={handleFormSubmit} />
       ) : (
         <div>
-          <CVPreview data={cvData} />
+          <ShowComponent data={cvData} />
           <button className="back-btn" onClick={handleBackToForm}>
             Back to Form
           </button>

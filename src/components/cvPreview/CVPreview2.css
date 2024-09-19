@@ -1,0 +1,117 @@
+
+  .cv-preview {
+    width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pr2-about {
+    background-color: #2e3d4f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  .pr2-about h1 {
+    font-size: 34px;
+    display: inline-block;
+    border-top: 3px solid white;
+    padding-top: 10px;
+  }
+  
+  .pr2-about>div{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .pr2-about p {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+
+  
+  .pr2-summary {
+    padding: 5px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: justify;
+  }
+  
+  .pr2-summary>h1, .pr2-experience>h1, .pr2-project>h1,.pr2-skills>h1,.pr2-education>h1{
+    display: inline-block;
+    padding: 0;
+    padding-top: 5px;
+    border-top: 3px solid #2e3d4f;
+    font-size: 24px;
+  }
+  .pr2-summary>p,.pr2-exp-container>p,.pr2-pro-container>p {
+    font-size: 14px;
+    color: #555;
+    padding: 0;
+  }
+  
+  .pr2-experience,.pr2-project, .pr2-skills,.pr2-education{
+    padding: 20px;
+  }
+ .pr2-exp-container>div, .pr2-education>div{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .pr2-exp-container>div>p, .pr2-education>div>p{
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e3d4f;
+ }
+ 
+ .pr2-pro-container>h2, .pr2-pro-container>h3, .pr2-education>h2{
+    color: #2e3d4f;
+    font-size: 16px;
+    font-weight: 600;
+ }
+
+ .pr2-project>h3>span{
+    background-color: #2e3d4f;
+    color: white;
+    padding: 5px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 200;
+ }
+  
+
+  .pr2-skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .pr2-skill-tag {
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px 20px;
+  }
+  
+  .pr2-education>h2{
+
+  }
+  .download-btn , .back-btn{
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-color: #2e3d4f;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .download-btn:hover, .back-btn:hover {
+    background-color: #1f2b3a;
+  }
+  

@@ -9,7 +9,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cv-about {
+.pr1-about {
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -17,17 +17,17 @@
   color: white;
 }
 
-.cv-about h1 {
+.pr1-about h1 {
   font-size: 24px;
   margin-bottom: 5px;
 }
 
-.cv-about p {
+.pr1-about p {
   font-size: 14px;
   margin-bottom: 3px;
 }
 
-.cv-about .profile-image {
+.pr1-about .pr1-profile-image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -35,22 +35,22 @@
   object-fit: cover;
 }
 
-.cv-summary {
+.pr1-summary {
   padding: 5px 20px;
   background-color: #f5f5f5;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.cv-summary p {
+.pr1-summary p {
   font-size: 16px;
   color: #555;
 }
 
-.cv-experience, .cv-skills, .cv-education, .cv-project {
+.pr1-experience, .pr1-skills, .pr1-education, .pr1-project {
   padding: 0px 20px;
 }
 
-.cv-experience h2, .cv-skills h2, .cv-education h2, .cv-project h2 {
+.pr1-experience h2, .pr1-skills h2, .pr1-education h2, .pr1-project h2 {
   font-size: 20px;
   color: #ffffff;
   background-color:#2e3d4f;
@@ -58,54 +58,54 @@
   margin-left: 150px;
 }
 
-.exp-container, .edu-container, .pro-container {
+.pr1-exp-container, .pr1-edu-container, .pr1-pro-container {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 10px;
   align-items: center;
 }
 
-.exp-child1, .edu-child1, .exp-child2, .edu-child2, .pro-child1, .pro-child2 {
+.pr1-exp-child1, .pr1-edu-child1, .pr1-exp-child2, .pr1-edu-child2, .pr1-pro-child1, .pr1-pro-child2 {
   text-align: left;
 }
 
-.exp-child1, .edu-child1, .pro-child1{
+.pr1-exp-child1, .pr1-edu-child1, .pr1-pro-child1{
   width: 20%; 
 }
 
-.exp-child2, .edu-child2, .pro-child2 {
+.pr1-exp-child2, .pr1-edu-child2, .pr1-pro-child2 {
   width: 80%; 
   border-left: 2px solid #2e3d4f;
   padding-left: 20px;
 }
 
-.exp-child1 h1, .edu-child1 h1, .pro-child1 h1 {
+.pr1-exp-child1 h1, .pr1-edu-child1 h1, .pr1-pro-child1 h1 {
   font-size: 14px;
   color: #888;
 }
 
-.exp-child2 h1, .edu-child2 h1{
+.pr1-exp-child2 h1, .pr1-edu-child2 h1{
   font-size: 18px;
   color: #333;
   margin-bottom: 5px;
 }
 
-.exp-child2 h4, .pro-child2 h4, .edu-child2 {
+.pr1-exp-child2 h4, .pr1-pro-child2 h4, .pr1-edu-child2 {
   font-size: 14px;
   color: #888;
   margin-bottom: 5px;
 }
 
-.exp-child2 p, .pro-child2 p {
+.pr1-exp-child2 p, .pr1-pro-child2 p {
   font-size: 14px;
   color: #555;
 }
-.cv-skills ul {
+.pr1-skills ul {
   list-style: none;
   padding-left: 150px;
 }
 
-.skill-tag {
+.pr1-skill-tag {
   display: inline-block;
   color: #888;
   margin: 10px;

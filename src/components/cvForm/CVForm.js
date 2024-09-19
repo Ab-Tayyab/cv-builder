@@ -51,14 +51,11 @@ const CVForm = ({ onSubmit }) => {
     name: "project",
   });
 
-  // Local state for multi-page functionality
   const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
 
-  // Watch all form fields
   const formValues = watch();
 
-  // Handle image upload
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -103,7 +100,7 @@ const CVForm = ({ onSubmit }) => {
         {step === 1 && (
           <div className="cv-container">
             <h2>Personal Information</h2>
-            <label>Profile Picture:</label>
+            <label>Profile Picture (Optional):</label>
             <br />
             <input
               type="file"
@@ -137,7 +134,7 @@ const CVForm = ({ onSubmit }) => {
             <br />
             <input type="tel" {...register("phone")} />
             <br />
-            <label>LinkedIn:</label>
+            <label>LinkedIn(Optional):</label>
             <br />
             <input type="link" {...register("linkedin")} />
             <br />
