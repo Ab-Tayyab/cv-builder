@@ -17,6 +17,7 @@ function ShowComponent({ data }) {
           onClick={() => setShowComponent1(true)}
           alt="Toggle to CVPreview1"
         />
+        <label>Format 1</label>
 
         <img
           src={img2}
@@ -24,6 +25,7 @@ function ShowComponent({ data }) {
           onClick={() => setShowComponent1(false)}
           alt="Toggle to CVPreview2"
         />
+        <label>Format 2</label>
       </div>
 
       <div className="cv-preview-container">

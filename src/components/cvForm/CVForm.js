@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import "./CVForm.css";
 
-const CVForm = ({ onSubmit }) => {
-  const { register, control, handleSubmit, watch } = useForm({
+const CVForm = ({ onSubmit, initialData }) => {
+  const { register, control, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      summary: "",
+      degree: "",
+      institution: "",
+      year: "",
       experience: [
         {
           jobTitle: "",
@@ -53,6 +61,14 @@ const CVForm = ({ onSubmit }) => {
 
   const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    if (initialData) {
+      Object.keys(initialData).forEach((key) => {
+        setValue(key, initialData[key]);
+      });
+    }
+  }, [initialData, setValue]);
 
   const formValues = watch();
 
@@ -140,7 +156,7 @@ const CVForm = ({ onSubmit }) => {
             <br />
             <label>Summary:</label>
             <br />
-            <textarea type="textarea" {...register("summary")} />
+            <textarea {...register("summary")} />
           </div>
         )}
 
@@ -180,7 +196,7 @@ const CVForm = ({ onSubmit }) => {
                   {...register(`experience.${index}.company`)}
                 />
                 <br />
-                <label>Year:(2020-2022)</label>
+                <label>Year: (2020-2022)</label>
                 <br />
                 <input
                   type="text"
@@ -190,7 +206,6 @@ const CVForm = ({ onSubmit }) => {
                 <label>Summary:</label>
                 <br />
                 <textarea
-                  type="text"
                   {...register(`experience.${index}.jobsummary`)}
                 />
                 <button
@@ -247,7 +262,7 @@ const CVForm = ({ onSubmit }) => {
 
         {step === 5 && (
           <div className="cv-container">
-            <h2>Experience</h2>
+            <h2>Projects</h2>
             {projectFields.map((item, index) => (
               <div key={item.id}>
                 <label>Project Name:</label>
@@ -264,11 +279,9 @@ const CVForm = ({ onSubmit }) => {
                   {...register(`project.${index}.projectTools`)}
                 />
                 <br />
-
                 <label>Description:</label>
                 <br />
                 <textarea
-                  type="text"
                   {...register(`project.${index}.projectSummary`)}
                 />
                 <button
@@ -292,12 +305,11 @@ const CVForm = ({ onSubmit }) => {
               }
               className="add-btn"
             >
-              Add Experience
+              Add Project
             </button>
           </div>
         )}
 
-        {/* Button Container for Navigation */}
         <div className="button-container">
           {step > 1 && (
             <button type="button" onClick={prevPage} className="prev-btn">

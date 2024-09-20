@@ -22,7 +22,7 @@ const App = () => {
     <div className="app">
       <h1>CV Maker</h1>
       {!showPreview ? (
-        <CVForm onSubmit={handleFormSubmit} />
+        <CVForm onSubmit={handleFormSubmit} initialData={cvData} />
       ) : (
         <div>
           <ShowComponent data={cvData} />
